@@ -26,10 +26,10 @@ import com.igorcgarcia.dhmarveld3.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-
-    private val callbackManager by lazy {
-        CallbackManager.Factory.create();
-    }
+//
+//    private val callbackManager by lazy {
+//        CallbackManager.Factory.create();
+//    }
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -47,86 +47,86 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        LoginManager.getInstance().registerCallback(callbackManager,
-                object : FacebookCallback<LoginResult?> {
-                    override fun onSuccess(loginResult: LoginResult?) {
-                        // App code
-                        Log.i("TESTE", "FB-onSuccess")
-                    }
+//        LoginManager.getInstance().registerCallback(callbackManager,
+//                object : FacebookCallback<LoginResult?> {
+//                    override fun onSuccess(loginResult: LoginResult?) {
+//                        // App code
+//                        Log.i("TESTE", "FB-onSuccess")
+//                    }
+//
+//                    override fun onCancel() {
+//                        // App code
+//                        Log.i("TESTE", "FB-onCancel")
+//                    }
+//
+//                    override fun onError(exception: FacebookException) {
+//                        // App code
+//                        Log.i("TESTE", "FB-onError")
+//                    }
+//                })
 
-                    override fun onCancel() {
-                        // App code
-                        Log.i("TESTE", "FB-onCancel")
-                    }
-
-                    override fun onError(exception: FacebookException) {
-                        // App code
-                        Log.i("TESTE", "FB-onError")
-                    }
-                })
-
-        //Google
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        var mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-        val signInButton = binding.signInButton
-        signInButton.setSize(SignInButton.SIZE_STANDARD)
-
-        val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-
-        signInButton.setOnClickListener{
-            Log.i("TESTE", "teste")
-        }
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        //Facebook
-        val accessToken = AccessToken.getCurrentAccessToken()
-        val isLoggedIn = accessToken != null && !accessToken.isExpired
-
-//        if (isLoggedIn) {
-//            binding.loginButton.isVisible = false
-//        } else {
-            binding.loginButton.setPermissions("email")
+//        //Google
+//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestEmail()
+//                .build()
+//
+//        // Build a GoogleSignInClient with the options specified by gso.
+//        var mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+//        val signInButton = binding.signInButton
+//        signInButton.setSize(SignInButton.SIZE_STANDARD)
+//
+//        val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()
+//        startActivityForResult(signInIntent, RC_SIGN_IN)
+//
+//        signInButton.setOnClickListener{
+//            Log.i("TESTE", "teste")
 //        }
+
     }
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode === RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(attr.data)
-            handleSignInResult(task)
-        }
-    }
-
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
-
-            // Signed in successfully, show authenticated UI.
-//            updateUI(account)
-        } catch (e: ApiException) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
-//            updateUI(null)
-        }
-    }
-
-    val RC_SIGN_IN = 999
+//    override fun onResume() {
+//        super.onResume()
+//        val account = GoogleSignIn.getLastSignedInAccount(this)
+//
+//        //Facebook
+//        val accessToken = AccessToken.getCurrentAccessToken()
+//        val isLoggedIn = accessToken != null && !accessToken.isExpired
+//
+////        if (isLoggedIn) {
+////            binding.loginButton.isVisible = false
+////        } else {
+//            binding.loginButton.setPermissions("email")
+////        }
+//    }
+//
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        callbackManager.onActivityResult(requestCode, resultCode, data)
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+//        if (requestCode === RC_SIGN_IN) {
+//            // The Task returned from this call is always completed, no need to attach
+//            // a listener.
+//            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(attr.data)
+//            handleSignInResult(task)
+//        }
+//    }
+//
+//    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+//        try {
+//            val account = completedTask.getResult(ApiException::class.java)
+//
+//            // Signed in successfully, show authenticated UI.
+////            updateUI(account)
+//        } catch (e: ApiException) {
+//            // The ApiException status code indicates the detailed failure reason.
+//            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+//            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
+////            updateUI(null)
+//        }
+//    }
+//
+//    val RC_SIGN_IN = 999
 }

@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.DHMarcelD3ActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.DHMarvelD3ActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/redv</item>
         <item name="colorPrimaryVariant">@color/red</item>
         <item name="colorOnPrimary">@color/white</item>

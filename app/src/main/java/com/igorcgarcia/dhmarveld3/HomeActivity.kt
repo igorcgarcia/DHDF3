@@ -36,10 +36,9 @@ class HomeActivity : AppCompatActivity() {
                 GridLayoutManager.VERTICAL, false
             )
             adapter = ComicsAdapter(comics) { position ->
-//                val intent = Intent(this@DetalheMenuActivity, DetalheEscolhaMenuActivity::class.java)
-//                intent.putExtra(KEY_INTENT_MENU,menuEscolha[position])
-//                startActivity(intent)
-//            }
+                val intent = Intent(this@HomeActivity, DetalheComicsActivity::class.java)
+                intent.putExtra("comicNumber",comics[position].comicNumber)
+                startActivity(intent)
             }
 
         }

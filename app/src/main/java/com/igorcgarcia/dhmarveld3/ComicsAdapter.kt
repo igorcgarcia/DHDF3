@@ -39,7 +39,11 @@ class ComicsAdapter(private val comicList : List<ComicList>,
             tvPosterComic = findViewById<TextView>(R.id.tvPosterComic)
 
             Glide.with(itemView.context).load(list.comicImage).into(ivPosterComic)
-            tvPosterComic.text = "#" + list.comicNumber
+            ("#" + list.comicNumber).also { tvPosterComic.text = it }
+
+            ivPosterComic.setOnClickListener {
+                onItemMenuClicked(this@ViewHolder.adapterPosition)
+            }
 
         }
     }

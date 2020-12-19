@@ -14,12 +14,27 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.DHMarcelD3ActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.DHMarvelD3ActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/redv</item>
         <item name="colorPrimaryVariant">@color/red</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="srcCompat">@drawable/image_marvel_logo</item>
+    </style>
+
+    <style name="Theme.DHMarvelD3RegisterActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/redv</item>
+        <item name="colorPrimaryVariant">@color/red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="Theme.DHMarvelD3DetalheActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryVariant">@color/red</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="TextInputMarvelRed" parent="Widget.Design.TextInputLayout">

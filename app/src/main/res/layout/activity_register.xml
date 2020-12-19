@@ -38,7 +38,7 @@
                 android:layout_marginTop="54dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="12dp"
-                android:hint="Nome"
+                android:hint="Name"
                 android:theme="@style/TextInputMarvelRed"
                 app:hintTextColor="@color/redv"
                 app:boxStrokeColor="@color/redv"

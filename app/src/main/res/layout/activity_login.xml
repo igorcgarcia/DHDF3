@@ -106,23 +106,23 @@
             android:layout_marginEnd="16dp"
             />
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGIN FB"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            />
+<!--        <com.facebook.login.widget.LoginButton-->
+<!--            android:id="@+id/loginButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="LOGIN FB"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            />-->
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_height="wrap_content" />
+<!--        <com.google.android.gms.common.SignInButton-->
+<!--            android:id="@+id/sign_in_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_height="wrap_content" />-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btCreateAccount"

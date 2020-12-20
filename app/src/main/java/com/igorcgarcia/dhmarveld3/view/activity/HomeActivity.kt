@@ -1,10 +1,13 @@
-package com.igorcgarcia.dhmarveld3
+package com.igorcgarcia.dhmarveld3.view.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.igorcgarcia.dhmarveld3.model.ComicList
+import com.igorcgarcia.dhmarveld3.view.adapter.ComicsAdapter
+import com.igorcgarcia.dhmarveld3.R
 
 class HomeActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.igorcgarcia.dhmarveld3
+package com.igorcgarcia.dhmarveld3.util
 
 import android.app.Application
 import com.facebook.FacebookSdk

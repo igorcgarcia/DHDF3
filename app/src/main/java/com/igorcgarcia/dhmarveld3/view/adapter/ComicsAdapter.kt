@@ -1,26 +1,25 @@
-package com.igorcgarcia.dhmarveld3
+package com.igorcgarcia.dhmarveld3.view.adapter
 
-import android.media.Image
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.igorcgarcia.dhmarveld3.R
+import com.igorcgarcia.dhmarveld3.model.ComicList
 
 class ComicsAdapter(private val comicList : List<ComicList>,
-                   private val onItemClicked : (Int) -> Unit
+                    private val onItemClicked : (Int) -> Unit
 ) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_grid_poster,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ComicsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(comicList[position],onItemClicked)
     }
 

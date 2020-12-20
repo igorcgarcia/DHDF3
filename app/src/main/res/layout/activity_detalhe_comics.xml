@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".DetalheComicsActivity">
+    tools:context=".view.activity.DetalheComicsActivity">
 
     <ImageView
         android:id="@+id/ivDetalheCover"
@@ -32,26 +32,134 @@
 
         <ImageView
             android:id="@+id/ivDetalhePosterComic"
-            android:layout_width="100dp"
-            android:layout_height="155dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/image_comic_example"
             android:scaleType="centerCrop"
             />
-
     </FrameLayout>
 
     <TextView
         android:id="@+id/tvDetalheTitulo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AMAZIN SPIDER-MAN (2014) #1 (MHAN VARIANT)"
+        android:text="AMAZIN SPIDER-MAN (2014) #1"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
         app:layout_constraintTop_toBottomOf="@id/flDetalhePainelBranco"
         />
+
+    <TextView
+        android:id="@+id/tvDetalheCriador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(MHAN VARIANT)"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalheTitulo"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalheDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The hands of the doomsday clock race towards MAYAN RULE! Former Avengers arrive to help stop the end of the world as more Mayan gods return. Rick A-Bomb Jones falls in battle!"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalheCriador"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePublicadoTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Published:"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalheDescricao"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePublicadoValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="April 30, 2014"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="5dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toEndOf="@id/tvDetalhePublicadoTitulo"
+        app:layout_constraintTop_toTopOf="@id/tvDetalhePublicadoTitulo"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePrecoTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price:"
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalhePublicadoTitulo"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePrecoValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 5,99"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="5dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toEndOf="@id/tvDetalhePrecoTitulo"
+        app:layout_constraintTop_toTopOf="@id/tvDetalhePrecoTitulo"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePaginasTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pages:"
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalhePrecoTitulo"
+        />
+
+    <TextView
+        android:id="@+id/tvDetalhePaginasValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="38"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="5dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toEndOf="@id/tvDetalhePaginasTitulo"
+        app:layout_constraintTop_toTopOf="@id/tvDetalhePaginasTitulo"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

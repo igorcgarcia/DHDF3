@@ -1,4 +1,4 @@
-package com.igorcgarcia.dhmarveld3
+package com.igorcgarcia.dhmarveld3.model
 
 import android.os.Parcel
 import android.os.Parcelable

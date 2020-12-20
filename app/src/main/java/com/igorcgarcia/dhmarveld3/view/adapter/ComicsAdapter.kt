@@ -1,5 +1,6 @@
 package com.igorcgarcia.dhmarveld3.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.igorcgarcia.dhmarveld3.R
-import com.igorcgarcia.dhmarveld3.model.ComicList
+import com.igorcgarcia.dhmarveld3.model.Result
 
-class ComicsAdapter(private val comicList : List<ComicList>,
+class ComicsAdapter(private val comicList : List<Result>,
                     private val onItemClicked : (Int) -> Unit
 ) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,13 +33,18 @@ class ComicsAdapter(private val comicList : List<ComicList>,
         private lateinit var ivPosterComic : ImageView
         private lateinit var tvPosterComic : TextView
 
-        fun bind(list : ComicList, onItemMenuClicked: (Int) -> Unit) = with(itemView) {
+        fun bind(list : Result, onItemMenuClicked: (Int) -> Unit) = with(itemView) {
 
             ivPosterComic = findViewById<ImageView>(R.id.ivPosterComic)
             tvPosterComic = findViewById<TextView>(R.id.tvPosterComic)
 
-            Glide.with(itemView.context).load(list.comicImage).into(ivPosterComic)
-            ("#" + list.comicNumber).also { tvPosterComic.text = it }
+            Log.i("ViewHolder","${list.thumbnail.path.replace("http:","https:")}.${list.thumbnail.extension}")
+
+            Glide.with(itemView.context)
+                .load("${list.thumbnail.path.replace("http:","https:")}.${list.thumbnail.extension}")
+                .centerCrop()
+                .into(ivPosterComic)
+            ("#" + list.id).also { tvPosterComic.text = it }
 
             ivPosterComic.setOnClickListener {
                 onItemMenuClicked(this@ViewHolder.adapterPosition)

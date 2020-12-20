@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
     tools:context=".view.activity.DetalheComicsActivity">
 
     <ImageView
@@ -19,8 +25,8 @@
 
     <FrameLayout
         android:id="@+id/flDetalhePainelBranco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="225dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivDetalheCover"
         app:layout_constraintBottom_toBottomOf="@id/ivDetalheCover"
@@ -43,7 +49,7 @@
         android:id="@+id/tvDetalheTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AMAZIN SPIDER-MAN (2014) #1"
+        android:text="AMAZIN SPIDER-MAN (2014) #1 (MHAN VARIANT)"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textAlignment="textStart"
@@ -52,20 +58,6 @@
         android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
         app:layout_constraintTop_toBottomOf="@id/flDetalhePainelBranco"
-        />
-
-    <TextView
-        android:id="@+id/tvDetalheCriador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="(MHAN VARIANT)"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textAlignment="textStart"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
-        app:layout_constraintTop_toBottomOf="@id/tvDetalheTitulo"
         />
 
     <TextView
@@ -78,7 +70,7 @@
         android:layout_margin="16dp"
         android:textAlignment="textStart"
         app:layout_constraintStart_toStartOf="@id/flDetalhePainelBranco"
-        app:layout_constraintTop_toBottomOf="@id/tvDetalheCriador"
+        app:layout_constraintTop_toBottomOf="@id/tvDetalheTitulo"
         />
 
     <TextView
@@ -163,3 +155,4 @@
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

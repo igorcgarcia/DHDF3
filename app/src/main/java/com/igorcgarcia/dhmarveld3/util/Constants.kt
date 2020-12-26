@@ -23,12 +23,13 @@ class Constants {
         const val HEADER_CONTENT_TYPE = "application/json;charset=utf-8"
     }
 
-    object Paging {
-        const val PAGE_SIZE = 20
-        const val FIRST_PAGE = 1
-    }
-
     object ComicsDetail {
         const val KEY_INTENT_COMIC_NUMBER = "comicNumber"
+        const val KEY_INTENT_COMIC_THUMBNAIL = "comicThumbnail"
+        const val KEY_INTENT_COMIC_TITLE = "comicTitle"
+        const val KEY_INTENT_COMIC_DESC = "comicDescription"
+        const val KEY_INTENT_COMIC_DATE = "comicDate"
+        const val KEY_INTENT_COMIC_PRICE = "comicPrice"
+        const val KEY_INTENT_COMIC_PAGE = "comicPage"
     }
 }

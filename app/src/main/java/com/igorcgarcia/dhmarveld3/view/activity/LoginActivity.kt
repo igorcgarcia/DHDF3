@@ -1,118 +1,77 @@
 package com.igorcgarcia.dhmarveld3.view.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import com.igorcgarcia.dhmarveld3.databinding.ActivityLoginBinding
 
 
-//ClienteId e ClientSecret -- Google
-//ClienteId = 736134215380-p7j8dbo4d3ehf6agtlaut9gjf93rjpce.apps.googleusercontent.com
-//ClientSecret = jx7vmyg_I6uliwftaXhmmzfB
-
 class LoginActivity : AppCompatActivity() {
 
-//
-//    private val callbackManager by lazy {
-//        CallbackManager.Factory.create();
-//    }
-
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreferences = getSharedPreferences("dhmarvekd3-ic", MODE_PRIVATE)
+        initComponents()
+        setupObservables()
+    }
+
+    private fun initComponents(){
+        val remember = sharedPreferences.getBoolean("remember",false)
+//        Log.i("LoginActivity", remember.toString())
+        if (remember) {
+            binding.edloginEmail.setText(sharedPreferences.getString("email", ""))
+            binding.edPwd.setText(sharedPreferences.getString("pwd", ""))
+            binding.cbRemenber.isChecked = remember
+        }
+    }
+
+    private fun setupObservables(){
         binding.btLogin.setOnClickListener{
-            startActivity(Intent(this, HomeActivity::class.java))
+            var valid = true
+            val email = binding.edloginEmail.text.toString()
+            val pwd = binding.edPwd.text.toString()
+
+            if (email == "") {
+                valid = false
+                binding.edloginEmail.error = "E-mail inválido!"
+            }
+
+            if (pwd == ""){
+                valid = false
+                binding.edPwd.error = "Password inválido!"
+            }
+
+            if (valid) {
+                startActivity(Intent(this, HomeActivity::class.java))
+            }
         }
 
         binding.btCreateAccount.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-
-//        LoginManager.getInstance().registerCallback(callbackManager,
-//                object : FacebookCallback<LoginResult?> {
-//                    override fun onSuccess(loginResult: LoginResult?) {
-//                        // App code
-//                        Log.i("TESTE", "FB-onSuccess")
-//                    }
-//
-//                    override fun onCancel() {
-//                        // App code
-//                        Log.i("TESTE", "FB-onCancel")
-//                    }
-//
-//                    override fun onError(exception: FacebookException) {
-//                        // App code
-//                        Log.i("TESTE", "FB-onError")
-//                    }
-//                })
-
-//        //Google
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestEmail()
-//                .build()
-//
-//        // Build a GoogleSignInClient with the options specified by gso.
-//        var mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-//        val signInButton = binding.signInButton
-//        signInButton.setSize(SignInButton.SIZE_STANDARD)
-//
-//        val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()
-//        startActivityForResult(signInIntent, RC_SIGN_IN)
-//
-//        signInButton.setOnClickListener{
-//            Log.i("TESTE", "teste")
-//        }
-
+        binding.cbRemenber.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked){
+                sharedPreferences.edit {
+                    putString("email",binding.edloginEmail.text.toString())
+                    putString("pwd",binding.edPwd.text.toString())
+                    putBoolean("remember",true)
+                }
+            } else {
+                sharedPreferences.edit {
+                    putBoolean("remember",false)
+                }
+                binding.edloginEmail.setText("")
+                binding.edPwd.setText("")
+            }
+        }
     }
-
-//    override fun onResume() {
-//        super.onResume()
-//        val account = GoogleSignIn.getLastSignedInAccount(this)
-//
-//        //Facebook
-//        val accessToken = AccessToken.getCurrentAccessToken()
-//        val isLoggedIn = accessToken != null && !accessToken.isExpired
-//
-////        if (isLoggedIn) {
-////            binding.loginButton.isVisible = false
-////        } else {
-//            binding.loginButton.setPermissions("email")
-////        }
-//    }
-//
-//
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        callbackManager.onActivityResult(requestCode, resultCode, data)
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-//        if (requestCode === RC_SIGN_IN) {
-//            // The Task returned from this call is always completed, no need to attach
-//            // a listener.
-//            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(attr.data)
-//            handleSignInResult(task)
-//        }
-//    }
-//
-//    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-//        try {
-//            val account = completedTask.getResult(ApiException::class.java)
-//
-//            // Signed in successfully, show authenticated UI.
-////            updateUI(account)
-//        } catch (e: ApiException) {
-//            // The ApiException status code indicates the detailed failure reason.
-//            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-//            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
-////            updateUI(null)
-//        }
-//    }
-//
-//    val RC_SIGN_IN = 999
 }

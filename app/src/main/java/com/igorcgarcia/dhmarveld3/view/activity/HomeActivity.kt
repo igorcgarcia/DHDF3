@@ -7,15 +7,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.igorcgarcia.dhmarveld3.R
-import com.igorcgarcia.dhmarveld3.model.ComicList
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_DATE
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_DESC
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_NUMBER
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_PAGE
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_PRICE
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_THUMBNAIL
+import com.igorcgarcia.dhmarveld3.util.Constants.ComicsDetail.KEY_INTENT_COMIC_TITLE
 import com.igorcgarcia.dhmarveld3.view.adapter.ComicsAdapter
 import com.igorcgarcia.dhmarveld3.viewModel.MarvelViewModel
 
 class HomeActivity : AppCompatActivity() {
-
-//    private val rvListComics : RecyclerView by lazy {
-//        findViewById(R.id.rvListComics)
-//    }
 
     private lateinit var viewModel: MarvelViewModel
 
@@ -28,18 +30,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun iniComponents() {
 
-        val comics = mutableListOf<ComicList>()
-
-        comics.add(ComicList(R.drawable.image_comic_example, 1))
-        comics.add(ComicList(R.drawable.image_comic_example, 2))
-        comics.add(ComicList(R.drawable.image_comic_example, 3))
-        comics.add(ComicList(R.drawable.image_comic_example, 4))
-        comics.add(ComicList(R.drawable.image_comic_example, 5))
-        comics.add(ComicList(R.drawable.image_comic_example, 6))
-
         viewModel = ViewModelProvider(this).get(MarvelViewModel::class.java)
         viewModel.getComics()
-
 
         viewModel.comicsLiveData.observe(this){ marvel ->
             findViewById<RecyclerView>(R.id.rvListComics).apply {
@@ -49,24 +41,24 @@ class HomeActivity : AppCompatActivity() {
                 )
                 adapter = ComicsAdapter(marvel.data.results) { position ->
                     val intent = Intent(this@HomeActivity, DetalheComicsActivity::class.java)
-                    intent.putExtra("comicNumber",marvel.data.results[position].id)
-                    intent.putExtra("comicTitle",marvel.data.results[position].title)
-                    intent.putExtra("comicDescription", marvel.data.results[position].description)
+                    intent.putExtra(KEY_INTENT_COMIC_NUMBER,marvel.data.results[position].id)
+                    intent.putExtra(KEY_INTENT_COMIC_TITLE,marvel.data.results[position].title)
+                    intent.putExtra(KEY_INTENT_COMIC_DESC, marvel.data.results[position].description)
 
                     marvel.data.results[position].dates.forEach(){
                         if (it.type == "onsaleDate"){
-                            intent.putExtra("comicDate", it.date)
+                            intent.putExtra(KEY_INTENT_COMIC_DATE, it.date)
                         }
                     }
 
                     marvel.data.results[position].prices.forEach(){
                         if (it.type == "printPrice"){
-                            intent.putExtra("comicPrice", it.price)
+                            intent.putExtra(KEY_INTENT_COMIC_PRICE, it.price)
                         }
                     }
 
-                    intent.putExtra("comicPage",marvel.data.results[position].pageCount)
-                    intent.putExtra("comicThumbnail", "${marvel.data.results[position].thumbnail.path}.${marvel.data.results[position].thumbnail.extension}")
+                    intent.putExtra(KEY_INTENT_COMIC_PAGE,marvel.data.results[position].pageCount)
+                    intent.putExtra(KEY_INTENT_COMIC_THUMBNAIL, "${marvel.data.results[position].thumbnail.path}.${marvel.data.results[position].thumbnail.extension}")
                     startActivity(intent)
                 }
 

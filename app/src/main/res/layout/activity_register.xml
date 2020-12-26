@@ -39,12 +39,13 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="12dp"
                 android:hint="Name"
-                android:theme="@style/TextInputMarvelRed"
+                app:boxBackgroundColor="@color/white"
                 app:hintTextColor="@color/redv"
                 app:boxStrokeColor="@color/redv"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edRegisterName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/blue_light"
@@ -59,12 +60,13 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="12dp"
                 android:hint="Email"
-                android:theme="@style/TextInputMarvelRed"
+                app:boxBackgroundColor="@color/white"
                 app:hintTextColor="@color/redv"
                 app:boxStrokeColor="@color/redv"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edRegisterEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/blue_light"
@@ -80,12 +82,13 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="12dp"
                 android:hint="Password"
-                android:theme="@style/TextInputMarvelRed"
+                app:boxBackgroundColor="@color/white"
                 app:hintTextColor="@color/redv"
                 app:boxStrokeColor="@color/redv"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edRegisterPwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/blue_light"
@@ -96,6 +99,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRegisterSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_buttom_enabled"

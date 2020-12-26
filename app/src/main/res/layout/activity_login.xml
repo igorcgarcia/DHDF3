@@ -44,19 +44,19 @@
         >
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="54dp"
             android:layout_marginStart="18dp"
             android:layout_marginEnd="12dp"
             android:hint="Email"
-            android:theme="@style/TextInputMarvelRed"
+            app:boxBackgroundColor="@color/white"
             app:hintTextColor="@color/redv"
             app:boxStrokeColor="@color/redv"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edlogin_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue_light"
@@ -72,12 +72,13 @@
             android:layout_marginStart="18dp"
             android:layout_marginEnd="12dp"
             android:hint="Password"
-            android:theme="@style/TextInputMarvelRed"
+            app:boxBackgroundColor="@color/white"
             app:hintTextColor="@color/redv"
             app:boxStrokeColor="@color/redv"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edPwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue_light"
@@ -87,6 +88,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
+            android:id="@+id/cbRemenber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"

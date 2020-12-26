@@ -22,11 +22,4 @@
         <item name="srcCompat">@drawable/image_marvel_logo</item>
     </style>
 
-
-    <style name="TextInputMarvelRed" parent="Widget.Design.TextInputLayout">
-        <item name="colorControlNormal">#999999</item>
-        <item name="colorControlActivated">@color/redv</item>
-        <item name="backgroundTint">@color/white</item>
-    </style>
-
 </resources>
